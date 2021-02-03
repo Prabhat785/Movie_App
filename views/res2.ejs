@@ -1,0 +1,72 @@
+<%- include("./partials/header")%>
+<div class="container"
+style="
+ float: left;
+ width: 30rem;
+ color: white;
+ padding: 20px;
+ "
+>
+    <img src="<%=film.Poster%>" class="img-fluid" alt="Responsive image" style="width: 30rem; box-shadow: black; " >
+ </div>
+<div class="container" style="
+width :fit-content
+color white ">
+<h1  style="color: cornsilk;"><%=film.Title%></h1>
+<h2 style="width: 100%; 
+  text-align: center; 
+  border-bottom: 5px solid rgb(248, 29, 29); 
+  line-height: 0.1em;
+  margin: 20px 0 20px; "><span style=" background:#fff; 
+    padding:0 10px; ">Info</span></h2>
+<p style="color: cornsilk;">
+    <%=film.Plot%> 
+</p>
+<ul class="list-group">
+    <li class="list-group-item">Languae : <%=film.Language%></li>
+    <li class="list-group-item">Gener : <%=film.Genre%> </li>
+    <li class="list-group-item">Year : <%=film.Year%> </li>
+    <li class="list-group-item">Released : <%=film.Released%> </li>
+    <li class="list-group-item">Runtime : <%=film.Runtime%> </li>
+    <li class="list-group-item">Director : <%=film.Director%> </li>
+    <li class="list-group-item">Writer : <%=film.Writer%> </li>
+    <li class="list-group-item">Actors : <%=film.Actors%> </li>
+    <li class="list-group-item">BoxOffice : <%=film.BoxOffice%> </li>
+    <li class="list-group-item">Production : <%=film.Production%> </li>
+  </ul>
+  <h2 style="width: 100%; 
+  text-align: center; 
+  border-bottom: 5px solid rgb(248, 29, 29); 
+  line-height: 0.1em;
+  margin: 50px 0 20px; "><span style=" background:#fff; 
+    padding:0 10px; ">Rating</span></h2>
+    <table class="table table-bordered table-dark" style="width: 100%;margin-top: 50px;">
+        <thead>
+            <tr>
+                <th scope="col">Source</th>
+                <%film.Ratings.forEach(function(movie) { %>
+                <th scope="col"><%=movie.Source%></th>
+                <% })%> 
+                <th scope="col">imdbRating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Rating</th>
+                <%film.Ratings.forEach(function(movie) { %>
+                <td><%=movie.Value%> </td>
+                <% })%> 
+                <td><%=film.imdbRating%></td>
+              </tr>
+            </tbody>
+            </table>
+      <h2 style="width: 100%; 
+  text-align: center; 
+  border-bottom: 5px solid rgb(248, 29, 29); 
+  line-height: 0.1em;
+  margin: 50px 0 20px; 
+  margin-bottom: 20px;"><span style=" background:#fff; 
+    padding:0 10px; ">Awards</span></h2>
+    <h4  style="color: cornsilk;"><%=film.Awards %> </h2>
+</div>
+<%- include("./partials/footer")%>
