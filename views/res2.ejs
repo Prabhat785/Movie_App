@@ -28,9 +28,13 @@ color white ">
     <li class="list-group-item">Year : <%=film.Year%> </li>
     <li class="list-group-item">Released : <%=film.Released%> </li>
     <li class="list-group-item">Runtime : <%=film.Runtime%> </li>
-    <li class="list-group-item">Director : <%=film.Director%> </li>
-    <li class="list-group-item">Writer : <%=film.Writer%> </li>
-    <li class="list-group-item">Actors : <%=film.Actors%> </li>
+    <li class="list-group-item">Director<a href="https://en.wikipedia.org/wiki/<%=film.Director%>" >  : <%=film.Director%> </a></li>
+    <li class="list-group-item">Writer :<% var nameArr = film.Writer.split(',');nameArr.forEach(element => {%>
+      <a href="https://en.wikipedia.org/wiki/<%=element.substr(0,element.indexOf('(')); %>"><%=element%></a>
+       <%});%></li>
+       <li class="list-group-item">Actors :<% var nameArr = film.Actors.split(',');nameArr.forEach(element => {%>
+        <a href="https://en.wikipedia.org/wiki/<%=element%>"><%=element%></a>
+         <%});%></li>
     <li class="list-group-item">BoxOffice : <%=film.BoxOffice%> </li>
     <li class="list-group-item">Production : <%=film.Production%> </li>
   </ul>

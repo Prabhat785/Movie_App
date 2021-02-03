@@ -61,12 +61,25 @@ app.get("/result",(req,res)=>{
     console.log(req.query)
     //res.send("Data Recieved")
     const url=`http://www.omdbapi.com/?apikey=cfd672ef&s=${req.query.search}`
+    const url2=`https://api.themoviedb.org/3/search/person?api_key=163a3a44da00520a9f12450581adec92&query=${req.query.search}`
     request(url,function(error,response,body){
         if(!error && response.statusCode==200)
         {
             const data= JSON.parse(body)
+            console.log(data);
             if(data.Response==='False')
-            res.render("error.ejs")
+            {
+                request(url2,function(error,response,body2){
+                    if(!error && response.statusCode==200)
+                    {
+                             const data2=JSON.parse(body2)
+                             console.log(data2);
+                             res.send("Yes");
+                    }
+                    else
+                    res.send("Something Went wrong")
+                })
+            }
             else
             res.render("result.ejs",{moviedata :data})
         }
