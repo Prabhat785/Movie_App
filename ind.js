@@ -6,7 +6,7 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 const flash = require("connect-flash");
 var morgan = require("morgan");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const User = require("./Db/User");
 let data1 ;
 console.log(__dirname)
