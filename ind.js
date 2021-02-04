@@ -160,7 +160,7 @@ app.get("/aboutus", (req, res)=>{
 app.get("*", (req, res)=>{
     res.render("pk1.ejs");
  });
-app.listen(5000, function(){
+app.listen(3000, function(){
     console.log("Server Has Started");
 });
 module.exports= app;
